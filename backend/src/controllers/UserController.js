@@ -35,8 +35,6 @@ class UsersController{
 
         db.pool.execute('INSERT INTO Usuario VALUES (?,?,?,?)', [ID, Email, Nome, encryptedKey], (error, results) => {
             if(error){
-                console.log(encryptedKey)
-                console.log(typeof(encryptedKey))
                 if(error = 1062) return res.status(422).json({ message: `User ${Email} already exists.` })
                 return res.status(500).json({ error: "Internal server error." })
             }
