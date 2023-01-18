@@ -6,7 +6,7 @@ class NotasController{
     // Mostra todos as notas de um usuário 
     async index(req, res){
         
-        const { UsuarioID } = req.params
+        const { usuarioID } = req.params
 
         db.pool.query('SELECT * from Notas WHERE UsuarioID = ?', [UsuarioID], (error, results) => {
             if (error) return res.status(500).json({ error: "Internal server error." })
@@ -18,12 +18,12 @@ class NotasController{
     // Cria uma nota 
     async create(req, res){
 
-        const { UsuarioID } = req.params
-        const { Titulo, Texto } = req.body
+        const { usuarioID } = req.params
+        const { titulo, texto } = req.body
         
         const ID = uuidv4() // criação de um id aleatório
 
-        db.pool.execute('INSERT INTO Notas VALUES (?,?,?,?)', [ID, Titulo, Texto, UsuarioID], (error, results) => {
+        db.pool.execute('INSERT INTO Notas VALUES (?,?,?,?)', [ID, titulo, texto, usuarioID], (error, results) => {
             if(error){
                 if(error = 1062) return res.status(422).json({ message: `Note ${ID} already exists.` })
                 return res.status(500).json({ error: "Internal server error." })
@@ -37,9 +37,9 @@ class NotasController{
     // Deleta uma nota
     async delete(req, res){
 
-        const { ID } = req.body
+        const { id } = req.body
         
-        db.pool.execute('SELECT * from Notas WHERE ID = ?',  [ID], (error, results) => {
+        db.pool.execute('SELECT * from Notas WHERE ID = ?',  [id], (error, results) => {
             if (error){
                 console.error(error)
                 return res.status(500).json({ error: "Internal server error." })

@@ -28,14 +28,14 @@ class UsersController{
     // Cria um usuário
     async create(req, res){
 
-        const { Email, Nome, Senha } = req.body
+        const { email, nome, senha } = req.body
         
         const ID = uuidv4() // criação de um id aleatório
-        const encryptedKey = await bcrypt.hash(Senha, 8) // criptografia da senha
+        const encryptedKey = await bcrypt.hash(senha, 8) // criptografia da senha
 
-        db.pool.execute('INSERT INTO Usuario VALUES (?,?,?,?)', [ID, Email, Nome, encryptedKey], (error, results) => {
+        db.pool.execute('INSERT INTO Usuario VALUES (?,?,?,?)', [ID, email, nome, encryptedKey], (error, results) => {
             if(error){
-                if(error = 1062) return res.status(422).json({ message: `User ${Email} already exists.` })
+                if(error = 1062) return res.status(422).json({ message: `User ${email} already exists.` })
                 return res.status(500).json({ error: "Internal server error." })
             }
 
@@ -48,16 +48,16 @@ class UsersController{
     async update(req, res){
 
         const { id } = req.params
-        const { Email, Nome, Senha } = req.body
+        const { email, nome, senha } = req.body
 
-        const encryptedKey = await bcrypt.hash(Senha, 8)
+        const encryptedKey = await bcrypt.hash(senha, 8)
         
         db.pool.execute('SELECT * from Usuario WHERE ID = ?',  [id], (error, results) => {
             if (error) return res.status(500).json({ error: "Internal server error." })
         
             if(Object.keys(results).length === 0) return res.status(404).json({ error: "User doesnt exists." })
         
-            db.pool.execute('UPDATE Usuario SET Email = ?, Nome = ?, Senha = ? WHERE ID = ?',[Email, Nome, encryptedKey, id],(error, results) => { 
+            db.pool.execute('UPDATE Usuario SET Email = ?, Nome = ?, Senha = ? WHERE ID = ?',[email, nome, encryptedKey, id],(error, results) => { 
                 if(error) return res.status(500).json({ error: "Internal server error." })
                 res.status(200).json(results)   
             })
