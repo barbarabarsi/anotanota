@@ -1,13 +1,22 @@
 import jwt from "jsonwebtoken"
+import { promisify } from "util"
+import config from "../config/auth"
 
 export default async (req, res, next) => {
     
-    const authenticated = false
+    const auth = req.headers.authorization
+
+    if(!auth) return res.status(401).json({ error: 'Token was not provided' })
     
-    if(authenticated){
+    const [ , token] = auth.split(' ')
+
+    try{
+        const decoded = await promisify(jwt.verify)(token, config.secret)
+        req.userId = decoded.Id
         return next()
     }
-    else{
-        return res.status(401).json()
+    catch(err){
+        return res.status(401).json({ error: 'Invalid token' })
     }
+
 }

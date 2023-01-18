@@ -1,5 +1,5 @@
 import mysql from "mysql2"
-import "../config/database"
+import config from "../config/database"
 
 class Database {
     constructor() {
