@@ -1,10 +1,10 @@
 #login {
-    background-color: #7696ff;
     display: flex;
     flex-direction: column;
     align-items:center;
     justify-content:center;
     min-height: 100vh;
+    gap: 20px;
     /* padding: 0 2rem; */
 }
 

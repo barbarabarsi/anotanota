@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./styles.css"
+import { AuthContext } from "../context/auth";
 
 const Navbar = () => {
     
+    const { logout } = useContext(AuthContext)
+
     const handleLogout = () => {
-        console.log("Logout")
+        logout()
     }
     
     return(

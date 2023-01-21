@@ -1,11 +1,8 @@
 import React from "react";
 import "./styles.css"
-import { getNotas, createNota } from "../services/api";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const userID = 'd644172d-22a8-4786-83d7-83ceaa82f7a0'
-
-const Create = ( { onSend } ) => {
+const CreateNote = ( { onSend } ) => {
     
     const [titulo, setTitulo] = useState('')
     const [texto, setTexto] = useState('')
@@ -35,4 +32,4 @@ const Create = ( { onSend } ) => {
     )
 }
 
-export default Create
+export default CreateNote

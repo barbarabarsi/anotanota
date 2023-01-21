@@ -1,32 +1,29 @@
 import React from "react";
 import Navbar from "./Navbar";
-import Create from "./Create";
-import { useState, useEffect } from "react";
+import CreateNote from "./CreateNote";
+import { useState, useEffect, useContext } from "react";
 import { getNotas, deleteNota, createNota } from "../services/api";
+import { AuthContext } from "../context/auth";
 
-const userID = 'd644172d-22a8-4786-83d7-83ceaa82f7a0'
 
 const HomePage = () => {
 
+    const { usuario } = useContext(AuthContext)
     const [notas, setNotas] = useState([])
 
     const loadNotas = async (query = '') => {
-        const response = await getNotas(userID)
+        const response = await getNotas(usuario.id)
         setNotas(response.data)
+        console.log(usuario)
     }
     
     useEffect(() =>{
         (async () => await loadNotas())()
     }, [])
 
-    const handleSearch = (query) => {
-        console.log("Input: ", query)
-    }
-
     const handleDelete = async(idNota) => {
-        await deleteNota(userID, idNota)
+        await deleteNota(usuario.id, idNota)
         loadNotas()
-        console.log("Deletado")
     }
 
     const handleEdit = () => {
@@ -34,16 +31,14 @@ const HomePage = () => {
     }
 
     const handleSend = async (titulo, texto) => {
-        console.log("estou aqui")
-        await createNota(userID, titulo, texto)
+        await createNota(usuario.id, titulo, texto)
         loadNotas()
-        console.log("fiz tudo")
     }
     
     return(
         <div id="home">
             <Navbar></Navbar>
-            <Create onSend = { handleSend }></Create>
+            <CreateNote onSend = { handleSend }></CreateNote>
             {/* <div className = "search">
                 <p>Buscar:</p>
                 <input 

@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Navbar from "./Navbar";
+import { createSession } from "../services/api";
 import "./styles.css"
+import { useNavigate } from "react-router-dom"
+
+import { AuthContext } from "../context/auth";
 
 const LoginPage = () => {
     
+    const navigate = useNavigate();
+    const { login } = useContext(AuthContext)
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
 
-    const handleLogin = () => {
-        console.log("email: ", email)
-        console.log("senha: ", senha)
+    const handleLogin = async() => {
         console.log("Login")
+        const response = await createSession(email, senha)
+        await login(email,senha)
+        navigate("/")
     }
 
     return(
@@ -37,7 +44,7 @@ const LoginPage = () => {
                     onChange = { (e) => setSenha(e.target.value)}
                     />
                 </div>
-                <button onClick={ handleLogin }>Entrar</button>
+                <button type="button" onClick={ handleLogin }>Entrar</button>
             </form>
         </div>
     )

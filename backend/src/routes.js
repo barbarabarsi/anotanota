@@ -13,7 +13,7 @@ const routes = new Router()
 routes.post('/session',SessionControler.create)
 routes.get('/hello', HelloController.index)
 
-//routes.use(auth) //middleware
+routes.use(auth) //middleware
 
 routes.get('/users', UsersController.index)
 routes.get('/users/:id', UsersController.show)
