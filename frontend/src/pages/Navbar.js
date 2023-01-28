@@ -12,8 +12,11 @@ const Navbar = () => {
     
     return(
         <div id="nav">
-            <p className = "logo">Notas</p>
-            <button onClick={ handleLogout }>Sair</button>
+            <span className = "logo">Notas</span>
+            <div className="links">
+                <span onClick={ handleLogout }>Sair</span>
+            </div>
+            
         </div>
     )
 }

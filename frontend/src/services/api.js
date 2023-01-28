@@ -8,9 +8,14 @@ export const createSession = async (email, senha) => {
     return api.post('/session', {email, senha})
 }
 
+export const createUser = async (nome, email, senha) => {
+    return api.post('/users', {nome, email, senha})
+}
+
 export const getNotas = async(usuarioId, query) => {
     let url = `/users/${usuarioId}/notas/`
     if (query !== undefined) url += `?q=${query}`
+    console.log(url)
     return api.get(url)
 }
 

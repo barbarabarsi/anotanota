@@ -1,149 +1,401 @@
-#login {
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+
+*{
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#login{
     display: flex;
     flex-direction: column;
-    align-items:center;
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
+    background: #B2AC88;
     min-height: 100vh;
-    gap: 20px;
-    /* padding: 0 2rem; */
+    gap: 30px;
+}
+
+#login .title{
+    color:#373423;
+    font-size: 25px;
+    font-weight: 1000;
+    margin-bottom: 30px;
 }
 
 #login form{
-    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #C4BFA4;
+    border-radius: 10px;
     width: 100%;
     max-width: 480px;
-    padding: .5rem;
+    padding: 1.5rem;
 }
 
-#login .field p{
-    display:block;
+#login span{
+    margin: 10px;
+    font-size: 13px;
 }
 
-#login .field input{
-    width: 100%;
+#login input{
+    width: 92%;
+    height: 40px;
+    background-color: #D6D3C0;
+    border-radius: 10px;
+    border: none;
+    padding: 1.5rem;
+    margin: 10px;
 }
+
+#login input:focus{
+    outline: none;
+}
+
 
 #login button{
-    
-    text-align: right;
-    margin-top: 1rem;
+    font-weight: 600;
+    color:white;
+    background-color: #6B6645;
+    border:none;
+    border-radius: 10px;
+    height: 40px;
+    width: 80px;
+    margin: 10px;
+    transition: 0.4s;
 }
+
+#login button:hover{
+    font-weight: 800;
+    background-color: #373423;
+    width: 85px;
+    cursor:pointer;
+}
+
+#login a{
+    color: #373423;
+    font-weight: 600;
+    text-decoration: none;
+}
+
 
 /* NAVBAR */
 
 #nav{
     display: flex;
-    background-color: #f1f1f1;
+    background-color: #6B6645;
     align-items:center;
-    justify-content:center;
-    border-bottom: 1px solid #969696;
+    justify-content:space-between;
+    max-width: 100vw;
+    height: 7%;
     padding: .5rem;
 }
 
 #nav .logo{
-    flex: 1;
     font-size: 1rem;
-    margin: 0;
+    color: #E8E6DC;
+    font-weight: bolder;;
+    margin: 0 30px;
+}
+
+#nav .links span{
+    font-size: 1rem;
+    color: #E8E6DC;
+    font-weight: 500;
+    margin: 0 30px;
+    transition: 0.1s;
+}
+
+#nav .links span:hover{
+    font-size: 1.05rem;
+    cursor: pointer;
 }
 
 /* HOME */
 
-
+#home{
+    background: #B2AC88;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
 #home .search{
     display: flex;
-    background-color: #f1f1f1;
+    background-color: #C4BFA4;
+    border-radius: 10px;
     align-items:center;
-    justify-content:center;
-    padding: .5rem;
-    max-width: 480px;
-    margin: 2rem auto;
-    gap: 5px;
+    padding: 1.8rem;
+    width: 450px;
+    margin: 10px 10px;
+    height: 50px;
 }
 
-#home .search p{
-    flex-shrink: 0;
+#home .search span{
+    font-weight: 600;
+    color:#373423;
+}
+
+#home .search input{
+    width: 70%;
+    height: 35px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #6B6645;
+    padding: 0.6rem;
+    margin-left: 8px;
+}
+
+#home .search button{
+    font-weight: 600;
+    color:white;
+    background-color: #878057;
+    border:none;
+    border-radius: 10px;
+    height: 30px;
+    width: 80px;
+    transition: 0.4s;
+    margin-left: 30px;
+}
+
+#home .search button:hover{
+    font-weight: 800;
+    background-color: #373423;
+    border-radius: 10px;
 }
 
 #home .notas{
-    max-width: 480px;
-    margin: 1rem auto;
+    align-items: center;
+    margin: 58px 60px;
 }
 
-#home .notas p{
-    font-size: 1.3 rem;
+#home .notas span{
+    color: #373423;
+    font-weight: 700;
+    font-size: 1.3rem;
     text-align: center;
+    margin: 0 25px 0 25px;
 }
 
 #home ul{
     list-style: none;
-    margin:0;
+    margin-top: 20px;
     padding:0;
+    width: 490px;
+}
+
+#home .result-busca{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color:#373423;
+}
+
+#home .result-busca #limpar{
+    font-size: 15px;
+    border-bottom: 1px solid #373423;
+}
+
+#home .result-busca #limpar:hover{
+    cursor: pointer;
 }
 
 #home .item{
-    background-color: #f1f1f1;
-    border: 1px solid #969696;
+    background-color: #C4BFA4;
     border-radius: 10px;
-    padding: 0.8rem;
+    padding: 1.2rem 1.8rem;
     margin: 10px 0px 10px 0px;
+    color: #373423;
 }
+
+#home .item .titulo{
+    font-weight: bolder;
+    font-size: 20px;
+    margin: 0 0 2px 0;
+}
+
 
 #home .infos{
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
 }
 
 #home .botoes{
     display:flex;
-    gap:5px;
+    gap:12px;
 }
 
-/* #home {
-    background-color: #7696ff;
+#home .botoes button, img{
+    width: 22px;
+    background-color: transparent;
+    border: none;
+}
+
+
+#home .main{
+    max-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    height: 93%;
+    margin: 0 100px;
+}
+
+#home .tools{
+    height: fit-content;
+    position: sticky;
+    margin-top: 90px;
+    top: 60px;
     display: flex;
     flex-direction: column;
-    align-items:center;
-    justify-content:center;
-    min-height: 100vh;
-} */
+    align-items: center;
+}
 
-/* create */
+/* createNote */
 
-#create{
+#create_note{
+    
     display: flex;
     flex-direction: column;
-    background-color: #f1f1f1;
-    padding: .5rem;
-    max-width: 480px;
-    margin: 2rem auto;
+    background-color: #C4BFA4;
+    padding: 1.8rem;
+    width: 450px;
+    height: 330px;
+    margin: 2rem;
     gap: 18px;
-
-
+    border-radius: 10px;
 }
 
-#create .input{
+#create_note span{
+    margin: 0 15px;
+    font-weight: 600;
+    color: #373423;
+}
+
+#create_note input {
+    width: 80%;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #6B6645;
+    padding: 0.6rem;
+    margin:  0 5px;
     max-width: 440px;
 }
 
-#create .text{
+#create_note .text{
     align-items: center;
-    height: 90px;
+    height: 125px;
     resize: none;
-}
-
-#create button{
-    width: 70px;
-    height: 30px;
-    /* border: none; */
-    /* background-color: #969696; */
-    transition-duration: 0.4s;
-}
-
-/* #create button:hover{
-    width: 72px;
-    height: 32px;
+    width: 100%;
+    background-color: #D6D3C0;
+    border-radius: 10px;
     border: none;
-} */
+    padding: 1rem;
+}
+
+#create_note button{
+    font-weight: 600;
+    color:white;
+    background-color: #878057;
+    border:none;
+    border-radius: 10px;
+    height: 35px;
+    width: 70px;
+    transition: 0.4s;
+}
+
+#create_note button:hover{
+    font-weight: 800;
+    background-color: #373423;
+    border-radius: 10px;
+}
+
+#create_note .text, input:focus{
+    outline: none;
+}
+
+
+/* create_user*/
+
+#create_user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #B2AC88;
+    min-height: 100vh;
+    gap: 30px;
+}
+
+#create_user .title{
+    font-size: 25px;
+    font-weight: 1000;
+    color:#373423;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+#create_user form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #C4BFA4;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 480px;
+    padding: 1.5rem;
+}
+
+#create_user span{
+    margin: 10px;
+    font-size: 13px;
+}
+
+#create_user input{
+    width: 92%;
+    height: 40px;
+    background-color: #D6D3C0;
+    border-radius: 10px;
+    border: none;
+    padding: 1.5rem;
+    margin: 10px; 
+}
+
+#create_user input:focus{
+    outline: none;
+}
+
+
+#create_user button{
+    font-weight: 600;
+    color:white;
+    background-color: #6B6645;
+    border:none;
+    border-radius: 10px;
+    height: 40px;
+    width: 80px;
+    margin: 10px;
+    transition: 0.4s;
+}
+
+#create_user button:hover{
+    font-weight: 800;
+    background-color: #373423;
+    width: 85px;
+    cursor:pointer;
+}
+
+#create_user a{
+    color: #373423;
+    font-weight: 600;
+    text-decoration: none;
+}
+

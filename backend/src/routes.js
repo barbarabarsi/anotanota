@@ -12,12 +12,13 @@ const routes = new Router()
 
 routes.post('/session',SessionControler.create)
 routes.get('/hello', HelloController.index)
+routes.post('/users', UsersController.create)
 
 routes.use(auth) //middleware
 
-routes.get('/users', UsersController.index)
+// routes.get('/users', UsersController.index)
 routes.get('/users/:id', UsersController.show)
-routes.post('/users', UsersController.create)
+
 routes.put('/users/:id', UsersController.update)
 routes.delete('/users/:id', UsersController.delete)
 

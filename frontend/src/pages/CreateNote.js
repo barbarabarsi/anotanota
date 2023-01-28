@@ -8,7 +8,7 @@ const CreateNote = ( { onSend } ) => {
     const [texto, setTexto] = useState('')
     
     return(
-        <div id="create">
+        <div id="create_note">
             <span>Criar</span>
             <input 
                 type="text-box" 

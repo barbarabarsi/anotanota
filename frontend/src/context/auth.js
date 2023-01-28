@@ -6,17 +6,13 @@ export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
     
-    const [usuario, setUsuario] = useState(null)
-    
+    const [usuario, setUsuario] = useState(() => JSON.parse(localStorage.getItem("usuario")) ?? null)
+    const [token, setToken] = useState(() => JSON.parse(localStorage.getItem("token")) ?? null)
+
+
     useEffect(() => {
-        const user = localStorage.getItem('usuario')
-        const token = localStorage.getItem('token')
-        if (user && token){
-            setUsuario(JSON.parse(user))
-            api.defaults.headers.Authorization = `Bearer ${token}`
-        } 
-        
-    }, [])
+        api.defaults.headers.Authorization = `Bearer ${token}`
+    },[])
     
     const login = async(email, senha) => {
         

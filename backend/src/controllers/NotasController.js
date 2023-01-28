@@ -7,13 +7,24 @@ class NotasController{
     async index(req, res){
         
         const { UsuarioID } = req.params
+        const { q } = req.query
 
-        db.pool.query('SELECT * from Notas WHERE UsuarioID = ?', [UsuarioID], (error, results) => {
-            if (error) return res.status(500).json({ error: "Internal server error." })
-            res.status(200).json(results) 
-        })  
+        if (q){
+            db.pool.query('SELECT * from Notas WHERE UsuarioID = ? AND Titulo LIKE ?', [UsuarioID, '%' + q + '%'], (error, results) => {
+                if (error) return res.status(500).json({ error: "Internal server error." })
+                res.status(200).json(results) 
+            })  
+        }
+        else{
+            db.pool.query('SELECT * from Notas WHERE UsuarioID = ?', [UsuarioID], (error, results) => {
+                if (error) return res.status(500).json({ error: "Internal server error." })
+                res.status(200).json(results) 
+            })  
+        }
+        
 
     }
+
 
     // Cria uma nota 
     async create(req, res){

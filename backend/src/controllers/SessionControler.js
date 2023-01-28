@@ -6,7 +6,6 @@ import bcrypt from "bcryptjs"
 class SessionController {
     async create(req, res){
         const { email, senha } = req.body
-        console.log([[email, typeof(email)],[senha, typeof(senha)]])
         db.pool.execute('SELECT * from Usuario WHERE Email = ?',  [email], (error, results) => {
             
             if (error) return res.status(500).json({ error: "Internal server error." })
