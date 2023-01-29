@@ -1,10 +1,8 @@
 import React, { useState, useContext } from "react";
-import Navbar from "./Navbar";
-import { createSession } from "../services/api";
+import { createSession } from "../../services/api";
 import "./styles.css"
 import { useNavigate, Link } from "react-router-dom"
-
-import { AuthContext } from "../context/auth";
+import { AuthContext } from "../../context/auth";
 
 const LoginPage = () => {
     

@@ -1,9 +1,9 @@
-import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage/index.js';
+import Homepage from './pages/Homepage/index.js';
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom"
 import { AuthProvider, AuthContext } from './context/auth';
 import React, { useContext } from 'react';
-import CreateUser from './pages/CreateUser';
+import CreateUser from './pages/CreateUser/index.js';
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
           <Route exact path= "/cadastro" element = {<CreateUser/>} />
           <Route exact path= "/" element = {
             <Private>
-              <HomePage/>
+              <Homepage/>
             </Private>
           } />
         </Routes>

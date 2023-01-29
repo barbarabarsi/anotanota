@@ -15,7 +15,6 @@ export const createUser = async (nome, email, senha) => {
 export const getNotas = async(usuarioId, query) => {
     let url = `/users/${usuarioId}/notas/`
     if (query !== undefined) url += `?q=${query}`
-    console.log(url)
     return api.get(url)
 }
 
@@ -27,7 +26,6 @@ export const deleteNota = async(usuarioId, idNota) => {
 }
 
 export const createNota = async(usuarioId, titulo, texto) => {
-    console.log(titulo, texto)
     let url = `/users/${usuarioId}/notas/`
     return api.post(url, {'titulo': titulo, 'texto': texto})
 

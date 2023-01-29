@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./styles.css"
-import { AuthContext } from "../context/auth";
-import { createUser, createSession } from "../services/api";
+import { AuthContext } from "../../context/auth";
+import { createUser, createSession } from "../../services/api";
 import { useNavigate, Link } from "react-router-dom"
 
 const CreateUser = () => {
