@@ -1,11 +1,11 @@
 import { Router } from "express";
 
-import auth from "./middlewares/auth"
+import auth from "./middlewares/auth.js"
 
-import HelloController from "./controllers/HelloController";
-import UsersController from "./controllers/UserController";
-import NotasController from "./controllers/NotasController";
-import SessionControler from "./controllers/SessionControler";
+import HelloController from "./controllers/HelloController.js";
+import UsersController from "./controllers/UserController.js";
+import NotasController from "./controllers/NotasController.js";
+import SessionControler from "./controllers/SessionControler.js";
 
 const routes = new Router()
 

@@ -1,4 +1,4 @@
-import db from "../database"
+import db from "../database/index.js"
 import { v4 as uuidv4 } from 'uuid';
 import bcrypt from "bcryptjs"
 class UsersController{

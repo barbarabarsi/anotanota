@@ -1,6 +1,6 @@
 import jwt  from "jsonwebtoken"
-import db from "../database"
-import authConfig from "../config/auth"
+import db from "../database/index.js"
+import authConfig from "../config/auth.js"
 import bcrypt from "bcryptjs"
 
 class SessionController {

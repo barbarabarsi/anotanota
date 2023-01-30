@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken"
 import { promisify } from "util"
-import config from "../config/auth"
+import config from "../config/auth.js"
 
 export default async (req, res, next) => {
     
@@ -9,8 +9,6 @@ export default async (req, res, next) => {
     if(!auth) return res.status(401).json({ error: 'Token was not provided' })
     
     const [ , token] = auth.split(' ')
-
-    
 
     try{
         const decoded = await promisify(jwt.verify)(token, config.secret)
