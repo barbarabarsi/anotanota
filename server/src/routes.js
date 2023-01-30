@@ -11,7 +11,7 @@ const routes = new Router()
 
 
 routes.post('/session',SessionControler.create)
-routes.get('/hello', HelloController.index)
+routes.get('/', HelloController.index)
 routes.post('/users', UsersController.create)
 
 routes.use(auth) //middleware
