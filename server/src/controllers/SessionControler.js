@@ -8,7 +8,11 @@ class SessionController {
         const { email, senha } = req.body
         db.pool.execute('SELECT * from Usuario WHERE Email = ?',  [email], (error, results) => {
             
-            if (error) return res.status(500).json({ error: "Internal server error." })
+            if (error){
+                console.error(error)
+                return res.status(500).json({ error: "Internal server error." })
+            } 
+
             if(Object.keys(results).length === 0) return res.status(401).json({ error: "User / password invalid." })
             
             const id = results[0].ID

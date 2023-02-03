@@ -5,7 +5,11 @@ export const api = axios.create({
 })
 
 export const createSession = async (email, senha) => {
-    return api.post('/session', {email, senha})
+    return api.post('/session', {email, senha}).catch(function (error) {
+        if (error){
+            console.log(error);
+        } ;
+    })
 }
 
 export const createUser = async (nome, email, senha) => {

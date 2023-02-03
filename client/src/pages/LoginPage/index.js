@@ -12,7 +12,6 @@ const LoginPage = () => {
     const [senha, setSenha] = useState('')
 
     const handleLogin = async() => {
-        console.log("Login")
         await createSession(email, senha)
         await login(email,senha)
         navigate("/")
