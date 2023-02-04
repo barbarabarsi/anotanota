@@ -19,10 +19,8 @@ export const getNotas = async(usuarioId, query) => {
 }
 
 export const deleteNota = async(usuarioId, idNota) => {
-
     let url = `/users/${usuarioId}/notas/${idNota}`
     return api.delete(url)
-
 }
 
 export const createNota = async(usuarioId, titulo, texto) => {
