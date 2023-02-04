@@ -1,15 +1,11 @@
 import axios from "axios"
 
 export const api = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://log-syst-32qjvhb0i-barbarabarsi.vercel.app',
 })
 
 export const createSession = async (email, senha) => {
-    return api.post('/session', {email, senha}).catch(function (error) {
-        if (error){
-            console.log(error);
-        } ;
-    })
+    return api.post('/session', {email, senha})
 }
 
 export const createUser = async (nome, email, senha) => {
