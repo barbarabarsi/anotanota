@@ -12,7 +12,7 @@ const Navbar = () => {
     
     return(
         <div id="nav">
-            <span className = "logo">Notas</span>
+            <span className = "logo">anotanota</span>
             <div className="links">
                 <span onClick={ handleLogout }>Sair</span>
             </div>
