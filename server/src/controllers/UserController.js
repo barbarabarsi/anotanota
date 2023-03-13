@@ -83,7 +83,25 @@ class UsersController{
                 res.status(200).json(results)   
             })
         })
+    }
+    
+    async delete(req, res){
 
+        const { id } = req.params
+        
+        db.pool.execute('SELECT * from Usuario WHERE ID = ?',  [id], (error, results) => {
+            if (error){
+                console.error(error)
+                return res.status(500).json({ error: "Internal server error." })
+            } 
+        
+            if(Object.keys(results).length === 0) return res.status(404).json({ error: "User doesnt exists." })
+        
+            db.pool.execute('DELETE FROM Usuario WHERE ID = ?',[id],(error, results) => { 
+                if(error) return res.status(500).json({ error: "Internal server error." })
+                res.status(200).json(results)   
+            })
+        })
     }
 }
 

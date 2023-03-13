@@ -4,6 +4,17 @@ export const api = axios.create({
     baseURL: 'https://log-syst-32qjvhb0i-barbarabarsi.vercel.app',
 })
 
+let token = null 
+
+api.interceptors.request.use(async config => {
+    if (!token) {
+      token = JSON.parse(localStorage.getItem("token"))
+    }
+    config.headers.Authorization = `Bearer ${token}`
+    return config
+})
+
+
 export const createSession = async (email, senha) => {
     return api.post('/session', {email, senha})
 }
