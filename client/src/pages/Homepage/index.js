@@ -18,7 +18,6 @@ const Homepage = () => {
 
 
     const loadNotas = async (query = '') => {
-        console.log("aqui")
         const response = await getNotas(usuario?.id, query)
         setNotas(response.data)
     }
@@ -35,7 +34,7 @@ const Homepage = () => {
     }
 
     const handleEdit = () => {
-        console.log("editado")
+  
     }
 
     const handleSearch = async () => {
