@@ -16,7 +16,6 @@ routes.post('/users', UsersController.create)
 
 routes.use(auth) //middleware
 
-// routes.get('/users', UsersController.index)
 routes.get('/users/:id', UsersController.show)
 
 routes.put('/users/:id', UsersController.update)
