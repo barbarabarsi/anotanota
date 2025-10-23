@@ -5,11 +5,15 @@
 	<img src="https://badgen.net/badge/status/developing/yellow" >
 </div>
 
-## :memo: Sobre o projeto
-Um sistema básico de registros de texto com operações de criação e deleção dos dados utilizando React.js, Node.js, Express.js e MySQL.
-No site Anotanota, o usuário pode se cadastrar e armazenar anotações simples com um título e um corpo de texto de até 280 caracteres.
+## About the Project
 
-## :soon: Implementações futuras
-- [ ] Aviso de usuário ou senha inválidos na tela de login
-- [ ] Função de editar nota já enviada
-- [ ] Seção de exibição do perfil do usuário
+A basic text record system with data creation and deletion operations using React.js, Node.js, Express.js, and MySQL.
+On the Anotanota website, users can register and store simple notes with a title and a body of text of up to 280 characters.
+
+## Future Implementations
+
+- [ ] Display a warning for invalid username or password on the login screen
+
+- [ ] Add the ability to edit an already submitted note
+
+- [ ] Add a user profile display section
